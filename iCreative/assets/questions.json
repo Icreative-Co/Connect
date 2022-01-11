@@ -1,0 +1,40 @@
+[
+{
+	"question": "PHP files have a default file extension of?",
+	"options": ["A. HTML", 
+		"B. XML", 
+		"C. PHP", 
+		"D. PH"],
+	"answer": "C. PHP"
+},
+
+{
+	"question": "HTML files have a default file extension of?",
+	"options": ["A. HTML", 
+		"B. XML", 
+		"C. PHP", 
+		"D. PH"],
+	"answer": "A. HTML"
+},
+
+
+{
+	"question": "XML files have a default file extension of?",
+	"options": ["A. HTML", 
+		"B. XML", 
+		"C. PHP", 
+		"D. PH"],
+	"answer": "B. XML"
+},
+
+
+{
+	"question": "PYTHON files have a default file extension of?",
+	"options": ["A. HTML", 
+		"B. XML", 
+		"C. PHP", 
+		"D. PY"],
+	"answer": "D. PY"
+}
+
+]
