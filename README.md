@@ -1,2 +1,2 @@
-# The-Hub
+# CONNECT
 Conglomerate of Programs
