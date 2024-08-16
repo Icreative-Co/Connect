@@ -20,527 +20,457 @@ from twilio.rest import Client
 user = []
 
 def signup():
-          
-           print("        =======CREATE ACCOUNT=======")
-           u_name = input("        USERNAME: ")
-           password = getpass.getpass(prompt= '        PASSWORD:  ')
-           f_path = "assets/accounts.json"
-           with open(f_path, 'r') as accounts:
-               users = json.load(accounts)
-               if u_name in users.keys():
-                   print("[!]Username alreadys exists.\n[!]Please Sign In\n")
-                   signin()
-               else:
-                  with open(f_path, 'w') as accounts:
-                   users[u_name] = [password, "PLAYER"]
-                   accounts.seek(0)
-                   json.dump(users, accounts)                  
-                   print("[*]Account Created Successfully!\n")
-                   
+    print("        =======CREATE ACCOUNT=======")
+    u_name = input("        USERNAME: ")
+    password = getpass.getpass(prompt='        PASSWORD:  ')
+    f_path = "assets/accounts.json"
+    with open(f_path, 'r') as accounts:
+        users = json.load(accounts)
+        if u_name in users.keys():
+            print("[!]Username already exists.\n[!]Please Sign In\n")
+            signin()
+        else:
+            with open(f_path, 'w') as accounts:
+                users[u_name] = [password, "PLAYER"]
+                accounts.seek(0)
+                json.dump(users, accounts)
+                print("[*]Account Created Successfully!\n")
+
 def signin():
-           
-           print("         ========LOGIN PANEL=========")
-           username = input("        USERNAME: ")
-           password = getpass.getpass(prompt= '        PASSWORD: ')
-           f_path = "assets/accounts.json"
-           with open(f_path, 'r') as u_acc:
-               users = json.load(u_acc)
-           if username not in users.keys():
-               print("[!]Account doesn't Exist!\n[!]Please Sign Up\n")
-               signup()      
-           elif username in users.keys():
-               if users[username][0] != password:
-                   print("[!]Incorrect Password!\n[!]Try Again\n")
-                   signin()
-               elif users[username][0] == password:    
-                   print("\n           ====Login Successful.====\n")
-                   user.append(username)
-                   user.append(users[username][1])
-                   time.sleep(1)
-def dtime():   
-         
-         current_time = datetime.now()
-         now = current_time.strftime("%H:%m:%S")
-         date = current_time.strftime("%d/%m/%Y")
-         
-         
-         print("\nDATE:" ,date)
-         print("TIME:",now)
-         
-         
+    print("         ========LOGIN PANEL=========")
+    username = input("        USERNAME: ")
+    password = getpass.getpass(prompt='        PASSWORD: ')
+    f_path = "assets/accounts.json"
+    with open(f_path, 'r') as u_acc:
+        users = json.load(u_acc)
+    if username not in users.keys():
+        print("[!]Account doesn't Exist!\n[!]Please Sign Up\n")
+        signup()
+    elif username in users.keys():
+        if users[username][0] != password:
+            print("[!]Incorrect Password!\n[!]Try Again\n")
+            signin()
+        elif users[username][0] == password:
+            print("\n           ====Login Successful.====\n")
+            user.append(username)
+            user.append(users[username][1])
+            time.sleep(1)
+
+def dtime():
+    current_time = datetime.now()
+    now = current_time.strftime("%H:%m:%S")
+    date = current_time.strftime("%d/%m/%Y")
+    print("\nDATE:", date)
+    print("TIME:", now)
+
 def MyCalc(num1, num2, oper):
-      
-     
-      if oper == "+":
-           result = num1 + num2
-           print("\n[+]Result is: ",result)
-           
-      elif oper == "-":
-           result = num1 - num2
-           print("\n[+]Result is: ",result)
+    if oper == "+":
+        result = num1 + num2
+        print("\n[+]Result is:", result)
+    elif oper == "-":
+        result = num1 - num2
+        print("\n[+]Result is:", result)
+    elif oper == "/":
+        result = num1 / num2
+        print("\n[+]Result is:", result)
+    elif oper == "*":
+        result = num1 * num2
+        print("\n[+]Result is:", result)
 
-      elif oper == "/":
-           result = num1 / num2
-           print("\n[+]Result is: ",result)
+def rps(intro):
+    print("\n[+]You chose: " + intro)
+    choses = ['R', 'P', 'S']
+    opponent = random.choice(choses)
+    print("\n[+]Comp chose: " + opponent)
+    time.sleep(2)
+    print("\n------Rolling Dice------")
+    time.sleep(1.5)
+    print("\n[+]Predicting Outcome......")
+    time.sleep(2)
 
-      elif oper == "*":
-           result = num1 * num2
-           print("\n[+]Result is: ",result)
-           
+    if opponent == str.upper(intro):
+        print("\n[[Tie]]")
+    elif opponent == 'R' and intro.upper() == 'S':
+        print("\n[[Scissors beats rock, comp wins!]]\n")
+    elif opponent == 'S' and intro.upper() == 'P':
+        print("\n[[Scissors beats paper, Comp wins!]]\n")
+    elif opponent == 'P' and intro.upper() == 'R':
+        print("\n[[Paper beats rock, Comp wins!]]\n")
+    else:
+        print("\n[[You win!]]\n")
 
-      
-def rps(intro):     
-    
-         print("\n[+]You chose: " + intro)
-         choses = ['R', 'P', 'S']
-         opponent = random.choice(choses)
-         print("\n[+]Comp chose: " + opponent)
-         time.sleep(2)
-         print("\n------Rolling Dice------")
-         time.sleep(1.5)   
-         print("\n[+]Predicting Outcome......")
-         time.sleep(2)
-           
-         if opponent == str.upper(intro):
-             print("\n[[Tie]]")
-         elif opponent == 'R' and intro.upper() == 'S':
-             print("\n[[Scissors beats rock, comp wins!]]\n")
-                 
-         elif opponent == 'S' and intro.upper() == 'P':
-             print("\n[[Scissors beats paper, Comp wins!]]\n")
-            
-         elif opponent == 'P' and intro.upper() == 'R':
-             print("\n[[Paper beats rock, Comp wins!]]\n")
-            
-         else:
-             print("\n[[You win!]]\n")
-         
-          
-           
 def pwmgr(numinput, app, length):
-    
-     password = string.ascii_letters+string.digits+string.punctuation
-    
-     for pwd in range(numinput):
-         pw = ""
-     for c in range(length):
-         pw += random.choice(password)
-     
-     print("\n")
-     print("  +" * 20) 
-     print("   [+]GENERATED", app, "PASSWORD:","[",pw,"]\n")        
-     print("  +" * 20)
-     time.sleep(1)
-     
-     sav = input("[+]Save the password (Y)es/(N)o: ") 
-     if sav == "Y":
-         f = open('Passwords/password.txt', 'a')
-         f.write(app+":" +pw)
-         f.close()
-     print("")
-     print("  +" * 20) 
-     print("  [+] Generated", app, "Password saved in password.txt")        
-     print("  +" * 20, "\n")
-     
-def youdl(url):     
-     yt = YouTube(url)
-     video = yt.streams.first()
-     print("[*] Downloading....")
-     video.download()
-     print("[*] Download Successful!")
+    password = string.ascii_letters + string.digits + string.punctuation
 
+    for pwd in range(numinput):
+        pw = ""
+        for c in range(length):
+            pw += random.choice(password)
+
+    print("\n")
+    print("  +" * 20)
+    print("   [+]GENERATED", app, "PASSWORD:", "[", pw, "]\n")
+    print("  +" * 20)
+    time.sleep(1)
+
+    sav = input("[+]Save the password (Y)es/(N)o: ")
+    if sav == "Y":
+        with open('Passwords/password.txt', 'a') as f:
+            f.write(app + ":" + pw + "\n")
+    print("")
+    print("  +" * 20)
+    print("  [+] Generated", app, "Password saved in password.txt")
+    print("  +" * 20, "\n")
+
+def youdl(url):
+    yt = YouTube(url)
+    video = yt.streams.first()
+    print("[*] Downloading....")
+    video.download()
+    print("[*] Download Successful!")
 
 def count():
-        count=0
-        with open("assets/questions.json", 'r+') as h:
-             for line in h:
-               count+=1
-               return count
-
-
+    count = 0
+    with open("assets/questions.json", 'r+') as h:
+        for line in h:
+            count += 1
+        return count
 
 def wait():
-        print("..\n")
-        time.sleep(1)
-        print("....\n")
-        time.sleep(1)
-        print("........\n")
-        time.sleep(1)
-        print("..........\n")
-    
-  
-
+    print("..\n")
+    time.sleep(1)
+    print("....\n")
+    time.sleep(1)
+    print("........\n")
+    time.sleep(1)
+    print("..........\n")
 
 def decrypt():
-    
     message = input('[*]MSG: ')
     trans = ''
-    i = len(message) -1
-    
+    i = len(message) - 1
     while i >= 0:
         trans = trans + message[i]
         i = i-1
-    
-    print("=========DECRYPTED MESSAGE=========")      
-    print(trans)    
+    print("=========DECRYPTED MESSAGE=========")
+    print(trans)
     print("=================================")
-    
+
 def crypt():
-    
     message = input('MSG: ')
     trans = ''
-    i = len(message) -1
-    
+    i = len(message) - 1
     while i >= 0:
         trans = trans + message[i]
-        i = i-1                
-    print("\n=========ENCRYPTED MESSAGE=========")      
-    print(trans)    
+        i = i-1
+    print("\n=========ENCRYPTED MESSAGE=========")
+    print(trans)
     print("=================================")
-    
-    ch = input("\n[*]Send Message y/n: ") 
-    
+
+    ch = input("\n[*]Send Message y/n: ")
     if not re.match("[Yy]", ch):
-           print("[*]EXITING PROGRAM....")
+        print("[*]EXITING PROGRAM....")
     else:
-        
-          account_sid = 'ACc381f5ab9d1427278ab3d9efe195c8ab'
-          auth_token = '8aa4a1db28e44bff949590b2be663544'
+        account_sid = 'replace with yours'
+        auth_token = 'replace with yours'
+        client = Client(account_sid, auth_token)
+        to = input("[*]RECIPIENT: ")
+        message = client.messages.create(
+            from_='+1 959 214 4455',
+            body=trans,
+            to=to
+        )
+        time.sleep(1)
+        print("\n[*]Message sent successfully.\n[*]Auth Token:", message.sid)
 
-          client = Client(account_sid, auth_token)
-
-          to = input("[*]RECIPIENT: ")
-          message = client.messages.create(
-    							from_='+1 959 214 4455',
-    							body = trans,
-    							to = to
-    						)
-          time.sleep(1)
-          print("\n[*]Message sent successfully.\n[*]Auth Token:", message.sid)
+# New functions for saving and loading quiz progress
+def save_progress(player_name, current_score, answered_questions, remaining_questions):
+    progress = {
+        "player_name": player_name,
+        "current_score": current_score,
+        "answered_questions": answered_questions,
+        "remaining_questions": remaining_questions
+    }
     
-    
+    with open(f'{player_name}_progress.json', 'w') as file:
+        json.dump(progress, file)
+    print("Progress saved successfully!")
 
+def load_progress(player_name):
+    try:
+        with open(f'{player_name}_progress.json', 'r') as file:
+            progress = json.load(file)
+        print("Progress loaded successfully!")
+        return progress
+    except FileNotFoundError:
+        print("No saved progress found for this player.")
+        return None
 
-
-
-
-
-
-    
+# Main program starts here
 print("\n")
-print("    ****"*5)
+print("    ****" * 5)
 print("        [       ICREATIVE CO.        ]")
-print("    ****"*5)
+print("    ****" * 5)
 
 print("\n            1.SIGN IN   2.SIGN UP")
 
-
 ch = input("                     :")
- 
 if ch == "1":
-      signin()
+    signin()
 elif ch == "2":
-      signup()
+    signup()
 else:
     print("[!]Wrong Value! Try Again")
     sys.exit()
 
-    
 while True:
-   print("\n Welcome to...\n")
-   print("  **"*7)
-   print("           THE HUB")
-   print("  **"*7)
-   dtime()
-   print("\nLoading, please wait....")
-   time.sleep(3)
-   print("    =================")
-   print(   "       PROGRAMMES"   )
-   print("    =================")
-   print("{a} = MyCalc")
-   print("{b} = Rock, Paper, Scissors")
-   print("{c} = Friendly Cow")
-   print("{d} = PasswordManager") 
-   print("{e} = YouTube Downloader")
-   print("{f} = Instagram Pic Downloader")
-   print("{g} = Personal Dictionary")
-   print("{h} = Video-Audio Converter")
-   print("{i} = Text-audio Converter")
-   print("{j} = Mirror! Mirror!")
-   print("{k} = iBrowser")
-   print("{l} = Quiz Show")
-   print("{m} = ENIGMA")
-   print("{q} = Quit the programme")
-   choice = input("\n>")
+    print("\n Welcome to...\n")
+    print("  **" * 7)
+    print("           THE HUB")
+    print("  **" * 7)
+    dtime()
+    print("\nLoading, please wait....")
+    time.sleep(3)
+    print("    =================")
+    print("       PROGRAMMES")
+    print("    =================")
+    print("{a} = MyCalc")
+    print("{b} = Rock, Paper, Scissors")
+    print("{c} = Friendly Cow")
+    print("{d} = PasswordManager")
+    print("{e} = YouTube Downloader")
+    print("{f} = Instagram Pic Downloader")
+    print("{g} = Personal Dictionary")
+    print("{h} = Video-Audio Converter")
+    print("{i} = Text-audio Converter")
+    print("{j} = Mirror! Mirror!")
+    print("{k} = iBrowser")
+    print("{l} = Quiz Show")
+    print("{m} = ENIGMA")
+    print("{q} = Quit the programme")
+    choice = input("\n>")
 
-   
-   if choice == "q":
-      
+    if choice == "q":
         break
-  
-   
-   if choice == "a":
-      print("======================================")
-      print("    --    ---  ---                 ")
-      print("    --     --  --            ..       ")
-      print("  ------    ----    -----  ------     ")
-      print("    --     --  --            ..       ")
-      print("    --    ---  ---                   ")
-      print("=======================================")
-      
-      num1 = int(input("\n[*] Enter first number: "))
-      num2 = int(input("[*] Enter second number: "))
-      oper = input("[*] Choose Operater (+,-,/,*)\n: ")
-      MyCalc(num1, num2, oper)
 
-      time.sleep(2)
-      ch = input("Do you wish to continue? (Y)es / (N)o: ")    
-     
-      if ch == "Y" or "y":
-              MyCalc(num1, num2, oper)
-      elif ch == "N" or "n":
-               break
-           
-           
-           
-           
-   if choice == "b":
-         print("===================================")
-         print(" [R]ock, [P]aper, [S]cissors v1.0")
-         print("===================================")
-         time.sleep(2)
-         print("[*] LOCATION: THe Hub")
-         time.sleep(1.5)
-         print("[*] MISSION: Deafeat the r@nd0m A.I\n")
-         time.sleep(1.5)
-         print("[*] Choose your WEAPON")
-         print("[R]ock, [P]aper, [S]cissors")
-         intro = input(": ")
-         if not re.match("[SsRrPp]", intro):
-             print("Chose a letter:")
-             print("[R]ock, [P]aper, [S]cissors")
-             continue
- 
-         rps(intro)
-         
-         name = input("Play Again ?")
-        
-         if not re.match("[Yy]", name):
-                break
-         else:
-                rps(intro) 
-       
-   
-   if choice == "c":
-      print("===================================")
-      print("      Friendly Cow v1.0")
-      print("===================================")
-      
+    if choice == "a":
+        print("======================================")
+        print("    --    ---  ---                 ")
+        print("    --     --  --            ..       ")
+        print("  ------    ----    -----  ------     ")
+        print("    --     --  --            ..       ")
+        print("    --    ---  ---                   ")
+        print("=======================================")
+        num1 = int(input("\n[*] Enter first number: "))
+        num2 = int(input("[*] Enter second number: "))
+        oper = input("[*] Choose operation [+, -, *, /]: ")
+        MyCalc(num1, num2, oper)
 
-      name=input("What is your name,stranger? \n:")
-      print("\n{ Good M00'ning", name,"}")
+    elif choice == "b":
+        print("======================================")
+        print("                ------  --    ----            ")
+        print("                --  --  --    --   --          ")
+        print("                  ----  --    ----          ")
+        print("                --  --  --    --   --          ")
+        print("                ------  ----  ----             ")
+        print("=======================================")
+        intro = input("[*]Choose rock(R), paper(P), scissors(S) : ")
+        rps(intro)
 
-      print("              \   ^__^      ") 
-      print("               \  (oo)\_______   *")
-      print("                  (__)\       )\/")
-      print("                      ||----w |  ")
-      print("                      ||     ||   ")
+    elif choice == "c":
+        print("======================================")
+        print("          --   --       ----           ")
+        print("          --   --     --    --            ")
+        print("          --   --    --      --           ")
+        print("          --   --     --    --          ")
+        print("           -----        ----              ")
+        print("=======================================")
 
-      time.sleep(2)
-      print("\n{ Welcome to the FORTUNATE COW}\n")
+        print("..... Mooooooooooooooooooo!.....")
 
-      print("                       \   ^__^      ") 
-      print("                        \  (oo)\_______   *")
-      print("                           (__)\       )\/")
-      print("                               ||----w |  ")
-      print("                               ||     ||   ")
-      
-      time.sleep(2)
-      
-      fortune_list=['happy', 'sad', 'joy', 'happy', 'blessed', 'angry', 'hate', 'caring', 'passionate']
+    elif choice == "d":
+        print("======================================")
+        print("         -----  --   --  -------        ")
+        print("        --       -- --   --     --       ")
+        print("        --        ---    --     --       ")
+        print("        --       -- --   --     --       ")
+        print("         -----  --   --  -------        ")
+        print("=======================================")
 
-      fortune = random.choice(fortune_list)
+        numinput = int(input("[+]How many passwords would you like to generate?: "))
+        app = input("[+]Application for this password: ")
+        length = int(input("[+]Choose length of password to be generated: "))
+        pwmgr(numinput, app, length)
 
-      print("\n{ Here is Your Fortune::",fortune,"}")
+    elif choice == "e":
+        print("======================================")
+        print("        -----  --    --  -----         ")
+        print("        --      --   --  --   --          ")
+        print("        -----  --   --  -----           ")
+        print("        --      --   --  --   --          ")
+        print("        -----  -------  -----             ")
+        print("=======================================")
 
-      print("                               \   ^__^      ") 
-      print("                                \  (oo)\_______   *")
-      print("                                   (__)\       )\/")
-      print("                                       ||----w |  ")
-      print("                                       ||     ||   ")
-      
-             
-      name = input("Play Again(y/n): ")
-        
-      if not re.match("[Yy]", name):
-                break
-      else:
-            signin()
+        url = input("[+]Enter YouTube link: ")
+        youdl(url)
 
+    elif choice == "f":
+        print("======================================")
+        print("           --       --  -------   ")
+        print("          --       --  --        ")
+        print("          --   --  --  -------       ")
+        print("          -- --   --  --           ")
+        print("           --       --  -------  ")
+        print("=======================================")
 
+        bot = instaloader.Instaloader()
+        acc = input("[+]Enter Instagram profile name: ")
+        bot.download_profile(acc, profile_pic_only=True)
 
-   if choice == "d":
-     print("===================================")
-     print("  ----Password Manager v1.0----")
-     print("===================================")
-     
-     numinput = 5
-     
-     app = input("\n[+] Generating password for: ")
-     length = int(input("\n[+] Password length: "))
-     
-     
-     pwmgr(numinput, app, length)
-     
-     
-     name = input("Play Again ?")
-        
-     if not re.match("[Yy]", name):
-                break
-     else:
-            pwmgr(numinput, app, length)
+    elif choice == "g":
+        print("======================================")
+        print("          ----  --  -------   ")
+        print("          --    --  --        ")
+        print("          --    --  -------   ")
+        print("          --    --  --        ")
+        print("          ----  --  -------  ")
+        print("=======================================")
 
-   if choice == "e":
+        dictionary = PyDictionary()
+        word = input("\n[*]Enter word: ")
+        mean = dictionary.meaning(word)
+        print("\n[*]MEANING:", mean)
 
-     print("===================================")
-     print(" ----YouTube Downloader v1.0----")
-     print("===================================")
-     
-     url = input("Enter the video url: ")
-     youdl(url)
+        syn = dictionary.synonym(word)
+        print("\n[*]SYNONYMS:", syn)
 
-     
-   if choice == "f":
-     print("===================================")
-     print(" Instagram Profile Downloader v1.0")
-     print("===================================")
-     
-     
-     bot = instaloader.Instaloader()
-     link = input("Enter the target username: ")
-     print(bot.download_profile(link,profile_pic_only=True))
+        ant = dictionary.antonym(word)
+        print("\n[*]ANTONYMS:", ant)
 
- 
-   
-   if choice == "g":
-     print("===================================")
-     print("  ----Inbuilt Dictionary v1.0----")
-     print("===================================")
-     
-     dict = PyDictionary()
-     
-     word = dict.meaning(input("Enter you word: "))
-     print(word)
-     
-   
-   if choice == "h":
-     print("===================================")
-     print("  Video-Audio converter v1.0----")
-     print("===================================")
+    elif choice == "h":
+        print("======================================")
+        print("      -------  -----    --   --  --  -------   ")
+        print("      --       --   --  --   --  --  --        ")
+        print("      -------  -----     -- --   --  -------    ")
+        print("      --       --   --   -- --   --  --        ")
+        print("      -------  -----       --    --  -------  ")
+        print("=======================================")
 
-     vid = input("Enter the video to be converted: ")
-     
-     video = moviepy.editor.VideoFileClip(vid)
-     audio = video.audio
-     
-     audio.write_audiofile(vid)
-     print("Conversion Successfully") 
+        video = input("[+]Enter name of video file: ")
+        video = moviepy.editor.VideoFileClip(video)
+        audio = video.audio
+        audio.write_audiofile("sample.mp3")
+        print("[*]Audio Successfully Extracted.")
 
+    elif choice == "i":
+        print("======================================")
+        print("          -------  --    ----             ")
+        print("             --     --   --   --           ")
+        print("             --     --   --   --            ")
+        print("          -------  ----  ----                ")
+        print("=======================================")
 
-   
-   
-   if choice == "i":
-     print("===================================")
-     print(" ----Text-Audio Converter v1.0----")
-     print("===================================")
-     
-     files = input("File to be transcribed:")
-     path = open(files, 'rb')
-     reader = PyPDF2.PdfFileReader(path)
-     page = reader.getPage(0)
-     text = page.extractText()
-     
-     speak = pyttsx3.init()
-     speak.say(text)
-     speak.runAndWait()
+        tex = input("[+]Enter text: ")
+        tts = gTTS(tex)
+        tts.save("test.mp3")
+        playsound("test.mp3")
 
+    elif choice == "j":
+        print("======================================")
+        print("       ----  --  -------   ")
+        print("       --    --  --        ")
+        print("       --    --  -------   ")
+        print("       --    --  --        ")
+        print("       ----  --  -------  ")
+        print("=======================================")
 
-   if choice == "j":
-     print("===================================")
-     print("     ----Mirror! Mirror! v1.0----")
-     print("===================================")
-     audio = "Audios/audio.mp3"
-     language = 'en'
-     text = input("What is your desire:")
-     clip = gTTS(text, lang = language, slow=False)
-     
-     clip.save(audio)
-     playsound(audio)
+        decrypt()
 
-   if choice == "k":
-     print("===================================")
-     print("     ----iBrowser v1.0----")
-     print("===================================")
+    elif choice == "k":
+        print("======================================")
+        print("         -------  --    --  -----         ")
+        print("         --       --   --   --   --           ")
+        print("         -------  --   --   -----           ")
+        print("         --       --   --   --   --           ")
+        print("         --       -------   -----            ")
+        print("=======================================")
 
-     url = input("URL of the webpage: ")
-     webbrowser.open_new(url)
-     
-   if choice == "l":
-       print("===================================")
-       print("       ----The Quiz Show----")
-       print("===================================")
-       
-       counter = int(input("\n[+] Number of players: "))
-       players = []
-      
-       for i in range(counter):
-             p_name = input("\n[+] Player name: ")
-             players.append(p_name)
-             
-             
-       print("\n[+] Confirm players:", players)
-        
-       ch = input("(Y)es/(N)o:")
-        
-       if not re.match("[Yy]", ch):
-             break 
-       else:
-            print("\n==========QUIZ START==========")
-            score = 0
-            n = count()
-            wait()
-            with open("assets/questions.json", 'r+') as f:
-                 j = json.load(f)
-                 for i in range(n):
-                        no_of_questions = len(j)
-                        ch = random.randint(0, no_of_questions-1)
-                        chose = random.choice(players)
-                        print(chose,"TURN\n")
-                        print(f'\nQ{i+1} {j[ch]["question"]}\n')
-                        for option in j[ch]["options"]:
-                            print(option)
-                        answer = input("\nEnter your answer: ")
-                        if j[ch]["answer"][0] == answer[0].upper():
-                            print("\nYou are correct")
-                            score+=1
-                        else:
-                            print("\nYou are incorrect")
-                        del j[ch]
-                        print(f'\nFINAL SCORE: {score}')
-          
-   if choice == "m":
-        print("==========================")
-        print("=======E N I G M A========")
-        print("==========================")        
-        print("[x]ENCRYPTOR/DECRYPTOR PROGRAM")
-        ch = input("1.ENCRYPT  2.DECRYPT \n:")
-        
+        print("\n[*]1.Open a webpage\n[*]2.Perform a search")
+        ch = input("[+]Enter: ")
         if ch == "1":
-            crypt()
-            
+            link = input("[+]Enter link: ")
+            webbrowser.open(link)
         elif ch == "2":
-            decrypt()
-            
-        else: 
-            print("incorrect value: Exiting program")
-            break
+            link = input("[+]Enter search: ")
+            webbrowser.open("https://www.google.com/search?q=" + link)
+        else:
+            print("[!]Try again")
+
+    elif choice == "l":
+        print("======================================")
+        print("     -----   --    --  -----   ")
+        print("     --   --  --   --  --        ")
+        print("     --   --  --   --  -----     ")
+        print("     --   --  --   --  --         ")
+        print("     -----    -------  -----   ")
+        print("=======================================")
+
+        # Quiz Show starts here
+        print("Welcome to the Quiz Show!")
+
+        player_name = user[0]
+        progress = load_progress(player_name)
+        if progress:
+            score = progress['current_score']
+            answered_questions = progress['answered_questions']
+            remaining_questions = progress['remaining_questions']
+        else:
+            score = 0
+            answered_questions = []
+            remaining_questions = list(range(1, count() + 1))
+
+        for question_id in remaining_questions:
+            with open("assets/questions.json", 'r+') as file:
+                questions = json.load(file)
+                question = questions[str(question_id)]
+
+            print("\n" + question['question'])
+            for option in question['options']:
+                print(option)
+
+            answer = input("Choose the correct option: ")
+
+            if answer.lower() == question['answer'].lower():
+                print("Correct!")
+                score += 1
+            else:
+                print("Incorrect. The correct answer was:", question['answer'])
+
+            answered_questions.append(question_id)
+            remaining_questions.remove(question_id)
+
+            save_choice = input("Do you want to save your progress? (yes/no): ")
+            if save_choice.lower() == "yes":
+                save_progress(player_name, score, answered_questions, remaining_questions)
+
+            cont = input("Do you want to continue the quiz? (yes/no): ")
+            if cont.lower() == "no":
+                save_progress(player_name, score, answered_questions, remaining_questions)
+                break
+
+        print(f"\nFinal Score: {score}")
+        print("Thank you for playing the Quiz Show!")
+
+    elif choice == "m":
+        print("======================================")
+        print("        --  --   -----   ")
+        print("        --  --   --       ")
+        print("        --  --   -----   ")
+        print("        --  --   --        ")
+        print("        -------  -----   ")
+        print("=======================================")
+
+        crypt()
+
+    else:
+        print("\n[!]Invalid input! Please try again.\n")
