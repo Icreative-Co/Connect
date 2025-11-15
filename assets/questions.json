@@ -1,0 +1,152 @@
+[
+  {
+    "question": "PHP files have a default file extension of?",
+    "options": ["A. HTML", "B. XML", "C. PHP", "D. PH"],
+    "answer": "C. PHP"
+  },
+  {
+    "question": "HTML files have a default file extension of?",
+    "options": ["A. HTML", "B. XML", "C. PHP", "D. PH"],
+    "answer": "A. HTML"
+  },
+  {
+    "question": "XML files have a default file extension of?",
+    "options": ["A. HTML", "B. XML", "C. PHP", "D. PH"],
+    "answer": "B. XML"
+  },
+  {
+    "question": "PYTHON files have a default file extension of?",
+    "options": ["A. HTML", "B. XML", "C. PHP", "D. PY"],
+    "answer": "D. PY"
+  },
+  {
+    "question": "JavaScript files have a default file extension of?",
+    "options": ["A. JS", "B. JScript", "C. JAVA", "D. JST"],
+    "answer": "A. JS"
+  },
+  {
+    "question": "C++ files have a default file extension of?",
+    "options": ["A. .c", "B. .cpp", "C. .cs", "D. .cxx"],
+    "answer": "B. .cpp"
+  },
+  {
+    "question": "CSS files have a default file extension of?",
+    "options": ["A. .style", "B. .css", "C. .scss", "D. .html"],
+    "answer": "B. .css"
+  },
+  {
+    "question": "JSON files have a default file extension of?",
+    "options": ["A. .js", "B. .json", "C. .txt", "D. .xml"],
+    "answer": "B. .json"
+  },
+  {
+    "question": "Ruby files have a default file extension of?",
+    "options": ["A. .rb", "B. .ru", "C. .rby", "D. .ruby"],
+    "answer": "A. .rb"
+  },
+  {
+    "question": "Java files have a default file extension of?",
+    "options": ["A. .jav", "B. .jv", "C. .java", "D. .class"],
+    "answer": "C. .java"
+  },
+  {
+    "question": "Shell script files have a default file extension of?",
+    "options": ["A. .sh", "B. .bash", "C. .script", "D. .cmd"],
+    "answer": "A. .sh"
+  },
+  {
+    "question": "Markdown files have a default file extension of?",
+    "options": ["A. .md", "B. .markdown", "C. .txt", "D. .m"],
+    "answer": "A. .md"
+  },
+  {
+    "question": "Python compiled bytecode files have which extension?",
+    "options": ["A. .pyo", "B. .pyc", "C. .pyd", "D. .pyb"],
+    "answer": "B. .pyc"
+  },
+  {
+    "question": "Windows batch files have a default extension of?",
+    "options": ["A. .bat", "B. .cmd", "C. .exe", "D. .sh"],
+    "answer": "A. .bat"
+  },
+  {
+    "question": "SQLite database files have which extension by default?",
+    "options": ["A. .sqlite", "B. .db", "C. .sql", "D. .db3"],
+    "answer": "B. .db"
+  },
+  {
+    "question": "MySQL dump files usually have which extension?",
+    "options": ["A. .sql", "B. .db", "C. .mysql", "D. .dump"],
+    "answer": "A. .sql"
+  },
+  {
+    "question": "PowerShell script files have which extension?",
+    "options": ["A. .ps", "B. .ps1", "C. .psm1", "D. .sh"],
+    "answer": "B. .ps1"
+  },
+  {
+    "question": "React JSX files have which extension?",
+    "options": ["A. .js", "B. .jsx", "C. .react", "D. .ts"],
+    "answer": "B. .jsx"
+  },
+  {
+    "question": "TypeScript files have which extension?",
+    "options": ["A. .ts", "B. .tsx", "C. .js", "D. .tsc"],
+    "answer": "A. .ts"
+  },
+  {
+    "question": "PHP configuration files often have which extension?",
+    "options": ["A. .ini", "B. .conf", "C. .php", "D. .cfg"],
+    "answer": "A. .ini"
+  },
+  {
+    "question": "Python virtual environment files use which folder convention?",
+    "options": ["A. venv", "B. pyenv", "C. env", "D. Both A & C"],
+    "answer": "D. Both A & C"
+  },
+  {
+    "question": "Java archive files have which extension?",
+    "options": ["A. .jar", "B. .war", "C. .ear", "D. All of the above"],
+    "answer": "D. All of the above"
+  },
+  {
+    "question": "Compressed archive files in Linux often use which extension?",
+    "options": ["A. .zip", "B. .tar.gz", "C. .tar.bz2", "D. All of the above"],
+    "answer": "D. All of the above"
+  },
+  {
+    "question": "Python script files that are executable often have which permission set?",
+    "options": ["A. 644", "B. 755", "C. 777", "D. 700"],
+    "answer": "B. 755"
+  },
+  {
+    "question": "HTML template files in Django commonly have which extension?",
+    "options": ["A. .html", "B. .htm", "C. .django", "D. .tpl"],
+    "answer": "A. .html"
+  },
+  {
+    "question": "Node.js configuration files often have which extension?",
+    "options": ["A. .js", "B. .json", "C. .node", "D. .ts"],
+    "answer": "B. .json"
+  },
+  {
+    "question": "CSS preprocessor files like Sass have which extension?",
+    "options": ["A. .scss", "B. .sass", "C. .css", "D. Both A & B"],
+    "answer": "D. Both A & B"
+  },
+  {
+    "question": "Python notebook files have which extension?",
+    "options": ["A. .py", "B. .ipynb", "C. .jnb", "D. .pynb"],
+    "answer": "B. .ipynb"
+  },
+  {
+    "question": "Go (Golang) source files have which extension?",
+    "options": ["A. .go", "B. .golang", "C. .g", "D. .gol"],
+    "answer": "A. .go"
+  },
+  {
+    "question": "Rust source files have which extension?",
+    "options": ["A. .rs", "B. .rust", "C. .r", "D. .ru"],
+    "answer": "A. .rs"
+  }
+]

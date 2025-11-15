@@ -1,0 +1,32 @@
+# CLI & formatting
+rich>=13.7.1
+colorama>=0.4.6
+
+# Networking & parsing (terminal browser)
+requests>=2.32.3
+beautifulsoup4>=4.12.3
+lxml>=4.9.3
+
+# YouTube & insta (optional features)
+pytube>=15.0.0
+yt-dlp>=2024.12.0
+instaloader>=4.13.1
+
+# Media / audio
+moviepy>=2.1.0
+imageio>=2.37.1
+imageio-ffmpeg>=0.6.0
+
+# Text-to-speech (choose one or more)
+edge-tts>=6.1.6
+gTTS>=2.5.3
+pyttsx3>=2.90
+
+# Small audio playback alternatives
+simpleaudio>=1.0.4
+
+# SMS
+twilio>=9.2.3
+
+# Dictionary fallback (optional)
+PyDictionary>=2.0.1

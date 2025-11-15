@@ -1,0 +1,12 @@
+{
+  "chuck": {
+    "password_hash": "aeaf681619b6dc0dd77c5aa2ea5205ad5183767e8d64a7e7ab1c0d8717bebf77",
+    "salt": "b6ecd4eb501e675bfa1fc2284289f445",
+    "role": "PLAYER"
+  },
+  "admin": {
+    "password_hash": "ba3229eec5f08ebcd52eba42524fca1f72b298995e1af8dc219afabc7b77b5f9",
+    "salt": "576968b5401fd07d9ddccb11784a5d39",
+    "role": "PLAYER"
+  }
+}
